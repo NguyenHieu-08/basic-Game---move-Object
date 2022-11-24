@@ -34,19 +34,31 @@ var hero = new Hero('conan.png', 20, 30, 200);
 
 function start() {
 
+  // if (hero.left < window.innerWidth - hero.size && hero.top === 20) {
+  //   hero.moveRight();
+  // } 
+  // else if (hero.left === 1330 && hero.top < window.innerHeight - hero.size) {
+  //   hero.moveDown();
+  // } 
+  // else if (hero.top === 570 && hero.top > window.innerHeight - hero.size) {
+  //   // console.log('hero top '+hero.top + ', window ' + window.innerHeight + ', size ' + hero.size + ', tổng = ' + (window.innerHeight - hero.size))
+  //   hero.moveLeft();
+  // }
+  // if (hero.left=== -20) {
+  //   hero.moveTop();
+  // }
+
+
   if (hero.left < window.innerWidth - hero.size && hero.top === 20) {
     hero.moveRight();
-  } 
-  else if (hero.left === 1330 && hero.top < window.innerHeight - hero.size) {
+  } else if (hero.left > window.innerWidth - hero.size && hero.top < window.innerHeight - hero.size) {
     hero.moveDown();
-  } 
-  else if (hero.top === 570 && hero.top > window.innerHeight - hero.size) {
-    // console.log('hero top '+hero.top + ', window ' + window.innerHeight + ', size ' + hero.size + ', tổng = ' + (window.innerHeight - hero.size))
+  } else if (hero.top > window.innerHeight - hero.size && hero.left > 0) {
     hero.moveLeft();
-  }
-  if (hero.left=== -20) {
+  } else {
     hero.moveTop();
   }
+
   document.getElementById('game').innerHTML = hero.getHeroElement();
   setTimeout(start, 500)
 }
